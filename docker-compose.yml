@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  react:
+    build:
+      context: ./front
+    image: node:alpine
+    container_name: react
+    volumes:
+      - ./front/src:/app/src
+    ports:
+      - "3000:3000"
+
+
