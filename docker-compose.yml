@@ -3,12 +3,21 @@ version: '3.8'
 services:
   react:
     build:
-      context: ./front
+      context: ./frontend
     image: node:alpine
     container_name: react
     volumes:
-      - ./front/src:/app/src
+      - ./frontend/src:/app/src
     ports:
       - "3000:3000"
+
+  springboot:
+    build:
+      context: ./backend
+    container_name: springboot
+    volumes:
+      - ./backend/src:/app/src
+    ports:
+      - "8080:8080"
 
 

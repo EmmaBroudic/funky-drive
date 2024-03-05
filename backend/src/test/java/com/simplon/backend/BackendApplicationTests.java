@@ -1,10 +1,10 @@
-package com.simplon.back;
+package com.simplon.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {
