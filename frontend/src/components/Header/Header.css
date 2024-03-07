@@ -1,16 +1,17 @@
-/* rose pale : f8d4b5
+/* rose pale : ffd3ad
 rose vif : 730433*/
 
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #f8d4b5;
+    background-color: #ffd3ad;
     width: 100%;
     height: 180px;
 }
 
 img {
+    padding-left: 30px;
     width: 200px;
     height: auto;
 }
@@ -20,21 +21,22 @@ nav {
     flex-direction: row;
     justify-content: right;
     align-items: right;
-    padding-top: 120px;
+    padding-top: 110px;
+    padding-right: 30px;
   }
 
   .menu-left, .menu-right {
     font-family: Montserrat;
-    font-size: 12pt;
-    color: #FF6060;
+    font-size: 10pt;
+    color: #730433;
     text-decoration: none;
     padding-right: 30px;
   }
   
   .menu-left:hover, .menu-right:hover {
     font-family: Montserrat;
-    font-size: 12pt;
-    color: #FF6060;
+    font-size: 10pt;
+    color: #730433;
     text-decoration: underline;
   }
 

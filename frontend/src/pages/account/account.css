@@ -1,0 +1,27 @@
+.account-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infos {
+    font-family: MontserratLight;
+    font-size: 11pt;
+    color: black;
+}
+
+.infos-perso {
+    font-family: MontserratBold;
+    font-size: 11pt;
+    color: black;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: white;
+    border-radius: 30px;
+    border: 0px;
+    padding: 20px;
+    margin: 20px;
+    color: #ff0058;
+}

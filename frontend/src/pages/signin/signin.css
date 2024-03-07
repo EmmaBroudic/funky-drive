@@ -1,0 +1,8 @@
+.signin-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 250px;
+    border: solid 3px #730433;
+    border-radius: 10px;
+}
