@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.backend.Services.UserService;
 import com.simplon.backend.entities.User;
+import com.simplon.backend.services.UserService;
 
 @RestController
 @RequestMapping("/user")

@@ -1,4 +1,4 @@
-package com.simplon.backend.Services;
+package com.simplon.backend.services;
 
 import java.util.UUID;
 

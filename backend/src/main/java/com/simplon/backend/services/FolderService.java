@@ -1,5 +1,6 @@
-package com.simplon.backend.Services;
+package com.simplon.backend.services;
 
+import java.util.Collection;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -16,5 +17,9 @@ public class FolderService {
 	
 	public Folder getFolderById(UUID id) {
 		return Database.getFolderById(id);
+	}
+	
+	public Collection<Folder> getAllFolders() {
+		return Database.getAllFolders();
 	}
 }

@@ -1,5 +1,6 @@
 package com.simplon.backend.database;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -42,4 +43,8 @@ public class Database {
 	public static Folder getFolderById(UUID id) {
 		return mapFolder.get(id);
 	}
+	
+    public static Collection<Folder> getAllFolders() {
+        return mapFolder.values();
+    }
 }

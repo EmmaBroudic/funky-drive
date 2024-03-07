@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.backend.Services.FileService;
 import com.simplon.backend.entities.File;
+import com.simplon.backend.services.FileService;
 
 @RestController
 @RequestMapping("/file")
