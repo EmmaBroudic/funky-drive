@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  db:
+  postgresdb:
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,3 +14,16 @@ services:
       POSTGRES_USER: your_username
       POSTGRES_PASSWORD: your_password
       POSTGRES_DB: your_database
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=adminpassword
+    ports:
+      - 8080:80
+    depends_on:
+      - postgresdb
+
+volumes:
+  db:

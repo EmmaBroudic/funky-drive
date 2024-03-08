@@ -1,6 +1,6 @@
 package com.simplon.backend.controllers;
 
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -37,8 +37,8 @@ public class FolderController {
 		return service.getFolderById(id);
 	}
 	
-	@GetMapping
+	/*@GetMapping
 	public Collection<Folder> getAllFolders() {
 		return service.getAllFolders();
-	}
+	}*/
 }

@@ -1,4 +1,5 @@
-CREATE TABLE "account" (
+DROP TABLE IF EXISTS account;
+CREATE TABLE account (
     id UUID PRIMARY KEY,
     firstname VARCHAR(50),
     lastname VARCHAR(50),
@@ -7,7 +8,8 @@ CREATE TABLE "account" (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE "folder" (
+DROP TABLE IF EXISTS folder;
+CREATE TABLE folder (
     id UUID PRIMARY KEY,
     name VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -16,7 +18,8 @@ CREATE TABLE "folder" (
     FOREIGN KEY (account_id) REFERENCES account (id)
 );
 
-CREATE TABLE "file" (
+DROP TABLE IF EXISTS file;
+CREATE TABLE file (
     id UUID PRIMARY KEY,
     name VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -2,6 +2,7 @@ package com.simplon.backend.controllers;
 
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.backend.entities.File;
+import com.simplon.backend.repository.FileRepository;
 import com.simplon.backend.services.FileService;
 
 @RestController
@@ -23,6 +25,9 @@ public class FileController {
 	public FileController(FileService service) {
 		this.service = service;
 	}
+	
+	@Autowired
+	FileRepository fileRepository;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
