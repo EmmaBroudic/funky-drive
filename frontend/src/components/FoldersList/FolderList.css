@@ -1,0 +1,17 @@
+.folders-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap : wrap;
+    width: 80%;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.folder-card {
+    width: 150px;
+    height: 100px;
+    background-color: #ffd3ad;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 50px;
+}

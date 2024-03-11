@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +19,6 @@ import com.simplon.backend.model.File;
 import com.simplon.backend.repository.FileRepository;
 import com.simplon.backend.services.FileService;
 
-@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/file")
 public class FileController {

@@ -1,0 +1,8 @@
+.folder-card {
+    width: 150px;
+    height: 100px;
+    background-color: #ffd3ad;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 50px;
+}

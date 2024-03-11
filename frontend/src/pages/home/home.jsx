@@ -1,5 +1,6 @@
 import Header from '../../components/Header/Header.jsx';
-import Folders from '../../components/Folders/Folders.jsx';
+import FoldersList from '../../components/FoldersList/FoldersList.jsx';
+import FolderCard from '../../components/FolderCard/FolderCard.jsx';
 import './home.css';
 
 function Home() {
@@ -7,7 +8,8 @@ function Home() {
     return (
         <div className="home-body">
             <Header />
-            <Folders />
+            <FoldersList />
+            <FolderCard />
             <p>Hello world</p>
         </div>
     );

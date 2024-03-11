@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './FolderList.css';
 
-function Folders() {
+function FoldersList() {
   const [folders, setFolders] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/folder")
+    axios.get("http://localhost:8080/folder/all")
       .then(response => {
         setFolders(response.data);
       })
@@ -15,14 +16,14 @@ function Folders() {
   }, []);
   console.log(folders);
   return (
-    <ul>
+    <div className="folders-body">
       {folders.map(folder => (
-        <li key={folder.id}>{folder.name}</li>
+        <div className="folder-card" key={folder.id}>{folder.name}</div>
       ))}
-    </ul>
+    </div>
   );
 }
 
 
 
-export default Folders;
+export default FoldersList;
