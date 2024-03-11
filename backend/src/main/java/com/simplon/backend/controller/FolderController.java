@@ -1,9 +1,13 @@
 package com.simplon.backend.controller;
 
+import java.util.Collection;
 //import java.util.Collection;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.backend.model.Folder;
+import com.simplon.backend.repository.FolderRepository;
 import com.simplon.backend.services.FolderService;
 
 @RestController
@@ -24,21 +29,23 @@ public class FolderController {
 	public FolderController(FolderService service) {
 		this.service = service;
 	}
+	
+	@Autowired
+	FolderRepository folderRepository;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public UUID create(@RequestBody Folder folder) {
-		return service.create(folder);
-	}
-		
-		
-	@GetMapping("/{id}")
-	public Folder getFolderById(@PathVariable UUID id) {
-		return service.getFolderById(id);
+	public ResponseEntity<Folder> create(@RequestBody Folder folder) {
+		return service.createFolder(folder);
 	}
 	
-	/*@GetMapping
-	public Collection<Folder> getAllFolders() {
+	@GetMapping("/all")
+	public ResponseEntity<Collection<Folder>> getAllFolders() {
 		return service.getAllFolders();
-	}*/
+	}
+		
+	@GetMapping("/{id}")
+	public ResponseEntity<Folder> getFolderById(@PathVariable @NonNull UUID id) {
+		return service.getFolderById(id);
+	}
 }

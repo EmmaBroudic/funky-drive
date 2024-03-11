@@ -1,19 +1,18 @@
 package com.simplon.backend.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,41 +34,19 @@ public class FileController {
 	@Autowired
 	FileRepository fileRepository;
 	
-	@SuppressWarnings("null")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<File> createFile(@RequestBody File file) {
-		try {
-			File _file = fileRepository
-					.save(new File(file.getName(), file.getCreatedAt()));
-			return new ResponseEntity<>(_file, HttpStatus.CREATED);
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+		return service.createFile(file);
 	}
-	
-	@SuppressWarnings("null")
-	@GetMapping("/all-files")
-	public ResponseEntity<List<File>> getAllFiles(@RequestParam(required = false) String name) {
-		try {
-			List<File> files = new ArrayList<File>();
-			
-			if (name == null)
-				fileRepository.findAll().forEach(files::add);
-			else fileRepository.findByNameContaining(name).forEach(files::add);
-			
-			if (files.isEmpty()) {
-				new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-		
-			return new ResponseEntity<>(files, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+
+	@GetMapping("/all")
+	public ResponseEntity<Collection<File>> getAllFiles() {
+	    return service.getAllFiles();
 	}
-	
+
 	@GetMapping("/{id}")
-	public File getFileById(@PathVariable UUID id) {
+	public ResponseEntity<File> getFileById(@PathVariable @NonNull UUID id) {
 		return service.getFileById(id);
 	}
 }

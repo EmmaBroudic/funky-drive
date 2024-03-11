@@ -33,6 +33,10 @@ public class Database {
 		return mapFile.get(id);
 	}
 	
+    public static Collection<File> getAllFiles() {
+        return mapFile.values();
+    }
+	
 	public static UUID addFolder(Folder folder) {
 		UUID newFolderId = UUID.randomUUID();
 		folder.setId(newFolderId);
