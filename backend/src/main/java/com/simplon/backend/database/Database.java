@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.UUID;
 
-import com.simplon.backend.entities.*;
+import com.simplon.backend.model.*;
 
 public class Database {
 	private static HashMap<UUID, User> mapUser = new HashMap<>();

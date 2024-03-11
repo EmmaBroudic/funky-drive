@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.simplon.backend.database.Database;
-import com.simplon.backend.entities.Folder;
+import com.simplon.backend.model.Folder;
 
 @Service
 public class FolderService {

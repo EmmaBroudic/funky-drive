@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.simplon.backend.entities.File;
+import com.simplon.backend.model.File;
 
 public interface FileRepository extends JpaRepository<File, UUID> {
-	List<File> findByFileContaining(String name);
+	List<File> findByNameContaining(String name);
 }

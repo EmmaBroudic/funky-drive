@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.simplon.backend.database.Database;
-import com.simplon.backend.entities.User;
+import com.simplon.backend.model.User;
 
 @Service
 public class UserService {

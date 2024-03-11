@@ -1,4 +1,4 @@
-package com.simplon.backend.entities;
+package com.simplon.backend.model;
 
 import jakarta.persistence.*;
 

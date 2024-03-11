@@ -1,8 +1,8 @@
-package com.simplon.backend.controllers;
+package com.simplon.backend.controller;
 
+//import java.util.Collection;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,31 +12,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.backend.entities.File;
-import com.simplon.backend.repository.FileRepository;
-import com.simplon.backend.services.FileService;
+import com.simplon.backend.model.Folder;
+import com.simplon.backend.services.FolderService;
 
 @RestController
-@RequestMapping("/file")
-public class FileController {
+@RequestMapping("/folder")
+public class FolderController {
 	
-	private final FileService service;
+	private final FolderService service;
 	
-	public FileController(FileService service) {
+	public FolderController(FolderService service) {
 		this.service = service;
 	}
-	
-	@Autowired
-	FileRepository fileRepository;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public UUID create(@RequestBody File file) {
-		return service.create(file);
+	public UUID create(@RequestBody Folder folder) {
+		return service.create(folder);
+	}
+		
+		
+	@GetMapping("/{id}")
+	public Folder getFolderById(@PathVariable UUID id) {
+		return service.getFolderById(id);
 	}
 	
-	@GetMapping("/{id}")
-	public File getFileById(@PathVariable UUID id) {
-		return service.getFileById(id);
-	}
+	/*@GetMapping
+	public Collection<Folder> getAllFolders() {
+		return service.getAllFolders();
+	}*/
 }
