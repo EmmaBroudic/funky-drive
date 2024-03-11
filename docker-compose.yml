@@ -2,18 +2,15 @@ version: '3.8'
 
 services:
   postgresdb:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: postgresql_custom
-    container_name: postgresql_container
-    restart: unless-stopped
-    ports:
-      - "5432:5432"
+    image: postgres
     environment:
-      POSTGRES_USER: your_username
-      POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: your_database
+      - POSTGRES_USER=adminuser
+      - POSTGRES_PASSWORD=adminpassword
+      - POSTGRES_DB=mydatabase
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
@@ -21,9 +18,10 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@example.com
       - PGADMIN_DEFAULT_PASSWORD=adminpassword
     ports:
-      - 8080:80
+      - 8081:80
     depends_on:
       - postgresdb
+
 
 volumes:
   db:
