@@ -106,9 +106,6 @@ Permission {
     |-- java
         |-- com
             |-- example
-                |-- config
-                    |-- JwtConfig.java
-                    |-- SecurityConfig.java
                 |-- controller
                     |-- AuthController.java
                     |-- FolderController.java
@@ -132,10 +129,15 @@ Permission {
                     |-- UserService.java
                     |-- FolderService.java
                     |-- FileService.java
-                    |-- impl
+                |-- security
+                    |-- jwt
+                        |-- AuthEntryPointJwt.java
+                        |-- AuthTokenFilter.java
+                        |-- JwtUtils.java
+                    |-- implservice
                         |-- UserServiceImpl.java
                         |-- FolderServiceImpl.java
                         |-- FileServiceImpl.java
-                |-- JwtTokenProvider.java (Custom JWT Provider class)
+                    |-- WebSecurityConfig.java
     |-- resources
         |-- application.properties
