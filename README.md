@@ -99,3 +99,43 @@ Permission {
 }
 
 ```
+
+## architecture projet sur Spring boot
+
+|-- main
+    |-- java
+        |-- com
+            |-- example
+                |-- config
+                    |-- JwtConfig.java
+                    |-- SecurityConfig.java
+                |-- controller
+                    |-- AuthController.java
+                    |-- FolderController.java
+                    |-- FileController.java
+                |-- model
+                    |-- User.java
+                    |-- Folder.java
+                    |-- File.java
+                |-- payload
+                    |-- request
+                        |-- LoginRequest.java
+                        |-- SignupRequest.java
+                    |-- response
+                        |-- JwtResponse.java
+                        |-- MessageResponse.java
+                |-- repository
+                    |-- UserRepository.java
+                    |-- FolderRepository.java
+                    |-- FileRepository.java
+                |-- service
+                    |-- UserService.java
+                    |-- FolderService.java
+                    |-- FileService.java
+                    |-- impl
+                        |-- UserServiceImpl.java
+                        |-- FolderServiceImpl.java
+                        |-- FileServiceImpl.java
+                |-- JwtTokenProvider.java (Custom JWT Provider class)
+    |-- resources
+        |-- application.properties
