@@ -7,14 +7,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "users")
 public class User {
 	
 	@Id
 	@Column(name = "id")
 	private UUID id;
+	
+	@NotBlank
+	@Size(max = 20)
+	private String username;
 	
 	@Column(name = "firstname")
 	private String firstname;
@@ -22,6 +28,8 @@ public class User {
 	@Column(name = "lastname")
 	private String lastname;
 	
+	@NotBlank
+	@Size(max = 50)
 	@Column(name = "email")
 	private String email;
 	
@@ -34,8 +42,9 @@ public class User {
 	public User() {
 	}
 	
-	public User(String firstname, String lastname, String email, String password, LocalDate createdAt) {
-	    this.firstname = firstname;
+	public User(String username, String firstname, String lastname, String email, String password, LocalDate createdAt) {
+	    this.username = username;
+		this.firstname = firstname;
 	    this.lastname = lastname;
 	    this.email = email;
 	    this.password = password;
@@ -48,6 +57,14 @@ public class User {
 	
 	public void setId(UUID id) {
 		this.id = id;
+	}
+	
+	public String getUsername() {
+		return this.username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	public String getFirstname() {
@@ -92,6 +109,6 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password + ", createdAt=" + createdAt + "]";
+		return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password + ", createdAt=" + createdAt + "]";
 	}
 }

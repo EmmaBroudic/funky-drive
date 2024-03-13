@@ -1,6 +1,6 @@
 package com.simplon.backend.repository;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,5 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.simplon.backend.model.User;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
-	List<User> findByFirstnameContaining(String firstname);
+	  Optional<User> findByUsername(String username);
+
+	  Boolean existsByUsername(String username);
+
+	  Boolean existsByEmail(String email);
 }
