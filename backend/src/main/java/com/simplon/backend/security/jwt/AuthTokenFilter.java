@@ -1,5 +1,7 @@
 package com.simplon.backend.security.jwt;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.simplon.backend.security.implservice.UserDetailsServiceImpl;
 
-import io.jsonwebtoken.io.IOException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,22 +32,21 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 	  @Override
 	  protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
 	      throws ServletException, IOException {
-	    try {
-	      String jwt = parseJwt(request);
-	      if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-	        String username = jwtUtils.getUserNameFromJwtToken(jwt);
-
-	        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-	        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null,
-	            userDetails.getAuthorities());
-	        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-	        SecurityContextHolder.getContext().setAuthentication(authentication);
-	      }
-	    } catch (Exception e) {
-	      logger.error("Cannot set user authentication: {}", e);
-	    }
-
+		    try {
+		      String jwt = parseJwt(request);
+		      if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
+		        String username = jwtUtils.getUserNameFromJwtToken(jwt);
+	
+		        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+		        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null,
+		            userDetails.getAuthorities());
+		        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+	
+		        SecurityContextHolder.getContext().setAuthentication(authentication);
+		      }
+		    } catch (Exception e) {
+		      logger.error("Cannot set user authentication: {}", e);
+		    }
 	    filterChain.doFilter(request, response);
 	  }
 	  
@@ -59,6 +59,4 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 		    return null;
 		  }
-
-
 }

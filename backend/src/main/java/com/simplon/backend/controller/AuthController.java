@@ -1,8 +1,5 @@
 package com.simplon.backend.controller;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -39,7 +36,7 @@ public class AuthController {
 	 JwtUtils jwtUtils;
 	 
 	 @PostMapping("/signin")
-	  public void authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+	  public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 		 Authentication authentication = authenticationManager
 			        .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 		 
@@ -47,8 +44,6 @@ public class AuthController {
 		    String jwt = jwtUtils.generateJwtToken(authentication);
 		    
 		 UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-		 List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
-		     .collect(Collectors.toList());
 
 		 return ResponseEntity
 		     .ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail()));
