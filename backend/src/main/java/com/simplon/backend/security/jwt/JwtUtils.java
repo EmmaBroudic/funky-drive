@@ -24,11 +24,11 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtils {
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 	
-	  @Value("${ajouter}")
-	  private String jwtSecret;
+	  @Value("123")
+	  private String SECRET_KEY;
 	  
 
-	  @Value("${ajouter}")
+	  @Value("123")
 	  private int jwtExpirationMs;
 	  
 	  public String generateJwtToken(Authentication authentication) {
@@ -44,7 +44,7 @@ public class JwtUtils {
 	  }
 	  
 	  private Key key() {
-		  return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+		  return Keys.hmacShaKeyFor(Decoders.BASE64.decode("123"));
 	  }
 	  
 	  public String getUserNameFromJwtToken(String token) {
