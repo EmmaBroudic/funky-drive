@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.simplon.backend.services.JWTService;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/auth")
 public class LoginController {
 	
 	public JWTService jwtService;
