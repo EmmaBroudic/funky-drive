@@ -1,7 +1,6 @@
 package com.simplon.backend.controller;
 
 import java.util.Collection;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +33,7 @@ public class UserController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<User> create(@RequestBody User user) {
+	public ResponseEntity<User> create(@RequestBody @NonNull User user) {
 		return service.createUser(user);
 	}
 	
@@ -44,7 +43,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable @NonNull UUID id) {
+	public ResponseEntity<User> getUserById(@PathVariable @NonNull Long id) {
 		return service.getUserById(id);
 	}
 }

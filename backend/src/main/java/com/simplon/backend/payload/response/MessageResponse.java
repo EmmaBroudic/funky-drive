@@ -1,4 +1,4 @@
-package com.simplon.backend.payload.response;
+/*package com.simplon.backend.payload.response;
 
 public class MessageResponse {
 	  private String message;
@@ -15,3 +15,4 @@ public class MessageResponse {
 	    this.message = message;
 	  }
 }
+*/

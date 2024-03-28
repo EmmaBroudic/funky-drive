@@ -1,4 +1,4 @@
-package com.simplon.backend.security.jwt;
+/*package com.simplon.backend.security.jwt;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -39,3 +39,4 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 	    mapper.writeValue(response.getOutputStream(), body);
 	  }
 }
+*/

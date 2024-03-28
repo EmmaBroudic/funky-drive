@@ -1,8 +1,6 @@
 package com.simplon.backend.controller;
 
 import java.util.Collection;
-//import java.util.Collection;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +33,7 @@ public class FolderController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Folder> create(@RequestBody Folder folder) {
+	public ResponseEntity<Folder> create(@RequestBody @NonNull Folder folder) {
 		return service.createFolder(folder);
 	}
 	
@@ -45,7 +43,7 @@ public class FolderController {
 	}
 		
 	@GetMapping("/{id}")
-	public ResponseEntity<Folder> getFolderById(@PathVariable @NonNull UUID id) {
+	public ResponseEntity<Folder> getFolderById(@PathVariable @NonNull Long id) {
 		return service.getFolderById(id);
 	}
 }

@@ -2,7 +2,6 @@ package com.simplon.backend.services;
 
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,10 +18,8 @@ public class FileService {
     @Autowired
     private FileRepository fileRepository;
 
-    public ResponseEntity<File> createFile(File file) {
+    public ResponseEntity<File> createFile(@NonNull File file) {
         try {
-            UUID newFileId = UUID.randomUUID();
-            file.setId(newFileId);
             File savedFile = fileRepository.save(file);
 
             return new ResponseEntity<>(savedFile, HttpStatus.CREATED);
@@ -31,7 +28,7 @@ public class FileService {
         }
     }
 
-    public ResponseEntity<File> getFileById(@NonNull UUID id) {
+    public ResponseEntity<File> getFileById(@NonNull Long id) {
     	try {
     		Optional<File> fileData = fileRepository.findById(id);
 
@@ -56,5 +53,5 @@ public class FileService {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
+	}
 }

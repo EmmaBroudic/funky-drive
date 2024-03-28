@@ -2,7 +2,6 @@ package com.simplon.backend.services;
 
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,10 +18,8 @@ public class UserService {
 	@Autowired
     private UserRepository userRepository;
 
-    public ResponseEntity<User> createUser(User user) {
+    public ResponseEntity<User> createUser(@NonNull User user) {
         try {
-            UUID newUserId = UUID.randomUUID();
-            user.setId(newUserId);
             User savedUser = userRepository.save(user);
 
             return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
@@ -31,7 +28,7 @@ public class UserService {
         }
     }
 
-    public ResponseEntity<User> getUserById(@NonNull UUID id) {
+    public ResponseEntity<User> getUserById(@NonNull Long id) {
     	try {
     		Optional<User> userData = userRepository.findById(id);
 

@@ -1,4 +1,4 @@
-package com.simplon.backend.security.jwt;
+/*package com.simplon.backend.security.jwt;
 
 import java.io.IOException;
 
@@ -59,4 +59,4 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 		    return null;
 		  }
-}
+}*/

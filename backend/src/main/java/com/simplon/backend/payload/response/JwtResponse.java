@@ -1,15 +1,13 @@
-package com.simplon.backend.payload.response;
-
-import java.util.UUID;
+/*package com.simplon.backend.payload.response;
 
 public class JwtResponse {
 	  private String token;
 	  private String type = "Bearer";
-	  private UUID id;
+	  private Long id;
 	  private String username;
 	  private String email;
 
-	  public JwtResponse(String accessToken, UUID id, String username, String email) {
+	  public JwtResponse(String accessToken, Long id, String username, String email) {
 	    this.token = accessToken;
 	    this.id = id;
 	    this.username = username;
@@ -32,11 +30,11 @@ public class JwtResponse {
 	    this.type = tokenType;
 	  }
 
-	  public UUID getId() {
+	  public Long getId() {
 	    return id;
 	  }
 
-	  public void setId(UUID id) {
+	  public void setId(Long id) {
 	    this.id = id;
 	  }
 
@@ -55,4 +53,4 @@ public class JwtResponse {
 	  public void setUsername(String username) {
 	    this.username = username;
 	  }
-}
+}*/

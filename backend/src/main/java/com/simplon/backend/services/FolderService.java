@@ -2,7 +2,6 @@ package com.simplon.backend.services;
 
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,10 +18,8 @@ public class FolderService {
     @Autowired
     private FolderRepository folderRepository;
 
-    public ResponseEntity<Folder> createFolder(Folder folder) {
+    public ResponseEntity<Folder> createFolder(@NonNull Folder folder) {
         try {
-            UUID newFolderId = UUID.randomUUID();
-            folder.setId(newFolderId);
             Folder savedFolder = folderRepository.save(folder);
 
             return new ResponseEntity<>(savedFolder, HttpStatus.CREATED);
@@ -31,7 +28,7 @@ public class FolderService {
         }
     }
 
-    public ResponseEntity<Folder> getFolderById(@NonNull UUID id) {
+    public ResponseEntity<Folder> getFolderById(@NonNull Long id) {
     	try {
     		Optional<Folder> folderData = folderRepository.findById(id);
 
@@ -56,5 +53,5 @@ public class FolderService {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
+	}
 }

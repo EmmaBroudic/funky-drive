@@ -1,4 +1,4 @@
-package com.simplon.backend.payload.request;
+/*package com.simplon.backend.payload.request;
 
 import jakarta.validation.constraints.NotBlank;
 
@@ -24,4 +24,4 @@ public class LoginRequest {
   public void setPassword(String password) {
     this.password = password;
   }
-}
+}*/

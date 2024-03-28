@@ -1,4 +1,4 @@
-package com.simplon.backend.controller;
+/*package com.simplon.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -48,4 +48,4 @@ public class AuthController {
 		 return ResponseEntity
 		     .ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail()));
 	 }
-}
+}*/

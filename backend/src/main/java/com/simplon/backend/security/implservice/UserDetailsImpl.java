@@ -1,9 +1,8 @@
-package com.simplon.backend.security.implservice;
+/*package com.simplon.backend.security.implservice;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
-import java.util.UUID;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +13,7 @@ import com.simplon.backend.model.User;
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
-    private UUID id;
+    private Long id;
     private String username;
     private String email;
 
@@ -24,7 +23,7 @@ public class UserDetailsImpl implements UserDetails {
     public UserDetailsImpl() {
     }
 
-    public UserDetailsImpl(UUID id, String username, String email, String password) {
+    public UserDetailsImpl(Long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -43,7 +42,7 @@ public class UserDetailsImpl implements UserDetails {
         return Collections.emptyList();
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -95,4 +94,4 @@ public class UserDetailsImpl implements UserDetails {
     public int hashCode() {
         return Objects.hash(id);
     }
-}
+}*/

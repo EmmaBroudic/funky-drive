@@ -1,4 +1,4 @@
-package com.simplon.backend.security.jwt;
+/*package com.simplon.backend.security.jwt;
 
 import java.security.Key;
 import java.util.Date;
@@ -69,4 +69,4 @@ public class JwtUtils {
 		    return false;
 		  }
 
-}
+}*/

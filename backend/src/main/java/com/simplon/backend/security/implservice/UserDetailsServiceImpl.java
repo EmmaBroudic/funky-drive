@@ -1,4 +1,4 @@
-package com.simplon.backend.security.implservice;
+/*package com.simplon.backend.security.implservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,4 +23,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return UserDetailsImpl.build(user);
     }
-}
+}*/

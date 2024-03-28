@@ -1,7 +1,6 @@
 package com.simplon.backend.controller;
 
 import java.util.Collection;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +33,7 @@ public class FileController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<File> createFile(@RequestBody File file) {
+	public ResponseEntity<File> createFile(@RequestBody @NonNull File file) {
 		return service.createFile(file);
 	}
 
@@ -44,7 +43,7 @@ public class FileController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<File> getFileById(@PathVariable @NonNull UUID id) {
+	public ResponseEntity<File> getFileById(@PathVariable @NonNull Long id) {
 		return service.getFileById(id);
 	}
 }

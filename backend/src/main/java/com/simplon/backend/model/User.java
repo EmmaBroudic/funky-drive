@@ -1,24 +1,25 @@
 package com.simplon.backend.model;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "users")
 public class User {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private UUID id;
+	private Long id;
 	
-	@NotBlank
 	@Size(max = 20)
 	private String username;
 	
@@ -28,7 +29,6 @@ public class User {
 	@Column(name = "lastname")
 	private String lastname;
 	
-	@NotBlank
 	@Size(max = 50)
 	@Column(name = "email")
 	private String email;
@@ -36,7 +36,7 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "createdAt")
+	@Column(name = "created_at")
 	private LocalDate createdAt;
 	
 	public User() {
@@ -51,11 +51,11 @@ public class User {
 	    this.createdAt = createdAt;
 	}
 	
-	public UUID getId() {
+	public Long getId() {
 		return this.id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
